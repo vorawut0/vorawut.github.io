@@ -1684,20 +1684,48 @@
     color: inherit;
 }
 
+/* ===== Grid แนวนอน ===== */
+.classroom-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 30px;
+}
+
+/* ===== ลิงก์ ===== */
+.classroom-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* ===== กล่อง ===== */
 .classroom-card {
-    height: 100%; /* สำคัญ: ทำให้สูงเท่ากัน */
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    border-radius: 16px;
-    padding: 20px;
+    height: 100%;
+    padding: 22px;
+    border-radius: 18px;
     text-align: center;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .classroom-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 35px rgba(0,0,0,0.3);
+}
+
+/* ===== ไล่สีสดใส ===== */
+.color-1 {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+.color-2 {
+    background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+}
+.color-3 {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+.color-4 {
+    background: linear-gradient(135deg, #fa709a, #fee140);
 }
 
 /* ===== รูป ===== */
@@ -1706,8 +1734,8 @@
     height: 80px;
     margin: 0 auto 12px;
     border-radius: 50%;
-    overflow: hidden;
     background: #fff;
+    overflow: hidden;
 }
 
 .classroom-icon img {
@@ -1716,28 +1744,36 @@
     object-fit: cover;
 }
 
-/* ===== หัวข้อ ===== */
+/* ===== ข้อความ ===== */
 .classroom-card h3 {
     font-size: 1.05rem;
-    margin: 10px 0 6px;
-    color: #fff;
+    margin: 8px 0;
 }
 
-/* ===== ชื่อครู ===== */
 .teacher-name {
     font-size: 0.9rem;
-    color: #ffeef7;
+    opacity: 0.95;
     margin-bottom: 10px;
 }
 
-/* ===== คำอธิบาย ===== */
 .classroom-desc {
     font-size: 0.9rem;
-    color: #fff;
     line-height: 1.4;
 }
 
+/* ===== มือถือ ===== */
+@media (max-width: 992px) {
+    .classroom-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 576px) {
+    .classroom-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
+                
 </style>
 
             <!-- หัวข้อ -->
@@ -2607,8 +2643,7 @@
 
 </section>
 
-        <!-- ================= ห้องเรียนออนไลน์ ================= -->
-<section id="classroom" class="page-section">
+       <section id="classroom" class="page-section">
 
     <div class="section-header">
         <h2>🎓 ห้องเรียนออนไลน์</h2>
@@ -2617,34 +2652,48 @@
 
     <div class="classroom-grid">
 
-        <a href="https://shorturl.asia/ftV6u" target="_blank" rel="noopener" class="classroom-link">
-            <div class="classroom-card">
+        <a href="https://shorturl.asia/ftV6u" target="_blank" class="classroom-link">
+            <div class="classroom-card color-1">
                 <div class="classroom-icon">
-                    <img src="images/171.jpg" alt="วิทยาการคำนวณ">
+                    <img src="images/171.jpg">
                 </div>
-
                 <h3>ป.6 เทคโนโลยี (วิทยาการคำนวณ)</h3>
                 <p class="teacher-name">นาชูเกียรติ วงศ์นิล 6610392104</p>
-
-                <p class="classroom-desc">
-                    เรื่อง การค้นหาข้อมูลโดยใช้อินเทอร์เน็ต
-                </p>
+                <p class="classroom-desc">การค้นหาข้อมูลโดยใช้อินเทอร์เน็ต</p>
             </div>
         </a>
 
-        <a href="https://shorturl.asia/TYrA2" target="_blank" rel="noopener" class="classroom-link">
-            <div class="classroom-card">
+        <a href="https://shorturl.asia/TYrA2" target="_blank" class="classroom-link">
+            <div class="classroom-card color-2">
                 <div class="classroom-icon">
-                    <img src="images/12.jpg" alt="วิทยาการคำนวณ">
+                    <img src="images/12.jpg">
                 </div>
-
                 <h3>ป.4 วิทยาการคำนวณ</h3>
                 <p class="teacher-name">นายวรวุฒิ เพ็ชรราย 6610392111</p>
+                <p class="classroom-desc">มุ่งเน้นพัฒนาทักษะการคิดเชิงคำนวณ (Computational Thinking)<br>
+                การแก้ปัญหาอย่างเป็นขั้นตอน (Algorrithm)</p>
+            </div>
+        </a>
 
-                <p class="classroom-desc">
-                    มุ่งเน้นพัฒนาทักษะการคิดเชิงคำนวณ
-                    การแก้ปัญหาอย่างเป็นขั้นตอน
-                </p>
+        <a href="https://shorturl.asia/YsM3U" target="_blank" class="classroom-link">
+            <div class="classroom-card color-3">
+                <div class="classroom-icon">
+                    <img src="images/172.jpg">
+                </div>
+                <h3>ป.6 วิทยาการคำนวณ</h3>
+                <p class="teacher-name">นายธนพล ทองเพิ่ม 66102392205</p>
+                <p class="classroom-desc">การติดตั้งซอฟต์แวร์จากอินเทอร์เน็ต</p>
+            </div>
+        </a>
+
+        <a href="https://shorturl.asia/I5g08" target="_blank" class="classroom-link">
+            <div class="classroom-card color-4">
+                <div class="classroom-icon">
+                    <img src="images/12.jpg">
+                </div>
+                <h3>ม.1 การออกแบบและเทคโนโลยี1</h3>
+                <p class="teacher-name">นางสาวณิชานันท์ มณีรัตน์ 6610392129</p>
+                <p class="classroom-desc">การแก้ปัญหาอย่างเป็นขั้นตอน</p>
             </div>
         </a>
 
