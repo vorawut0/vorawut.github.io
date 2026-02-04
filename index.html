@@ -1670,7 +1670,53 @@
     object-fit: cover;      /* ⭐ เต็มกล่อง ไม่ยืด */
     display: block;
 }
-   
+
+/* ===== GRID เรียงบุคลากร ===== */
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* ===== การ์ด ===== */
+.teacher-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* ===== รูป (สี่เหลี่ยม) ===== */
+.teacher-avatar.small {
+    width: 100%;
+    height: 220px;              /* ⭐ คุมความสูง */
+    overflow: hidden;
+    border-radius: 8px;         /* ถ้าไม่อยากมน → เปลี่ยนเป็น 0 */
+    margin-bottom: 1rem;
+}
+
+.teacher-avatar.small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* รูปเต็มกรอบ ไม่ยืด */
+    display: block;
+}
+
+/* ===== ชื่อ ===== */
+.teacher-card h4 {
+    margin: 0.5rem 0 0.25rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+/* ===== ตำแหน่ง ===== */
+.teacher-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
 
 </style>
 
@@ -1745,7 +1791,7 @@
     <div class="teacher-card">
         <div class="teacher-avatar small">
             <div class="teacher-avatar small">
-    <img src="images/teachers/thai.jpg" alt="อาจารย์วรรณา ศรีสุข">
+    <img src=images/823289_0.jpg" alt="อาจารย์วรรณา ศรีสุข">
 </div>
 
         </div>
