@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Heart Text Animation</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        background:#000;
+        overflow:hidden;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        font-family:Arial, sans-serif;
+    }
+
+    canvas{
+        position:absolute;
+    }
+</style>
+</head>
+<body>
+
+<canvas id="heart"></canvas>
+
+<script>
+const canvas = document.getElementById("heart");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const particles = [];
+
+const text = "I love you na dolnapa";
+
+class Particle {
+    constructor(t) {
+        this.t = t;
+        this.size = window.innerWidth < 768 ? 10 : 18;
+        this.color = "#ff9ed2";
+        this.speed = 0.006 + Math.random() * 0.002;
+    }
+
+    update() {
+        this.t += this.speed;
+        if (this.t > Math.PI * 2) {
+            this.t = 0;
+        }
+    }
+
+    draw() {
+
+        // Heart formula
+        const x = 16 * Math.pow(Math.sin(this.t), 3);
+        const y = -(13 * Math.cos(this.t)
+            - 5 * Math.cos(2 * this.t)
+            - 2 * Math.cos(3 * this.t)
+            - Math.cos(4 * this.t));
+
+        const scale = 20;
+
+        const posX = canvas.width / 2 + x * scale;
+        const posY = canvas.height / 2 + y * scale;
+
+        ctx.save();
+
+        ctx.translate(posX, posY);
+
+        // rotate text slightly
+        ctx.rotate(Math.sin(this.t) * 0.3);
+
+        ctx.font = `${this.size}px Arial`;
+        ctx.fillStyle = this.color;
+
+        ctx.shadowColor = "#fff";
+        ctx.shadowBlur = 10;
+
+        ctx.fillText(text, 0, 0);
+
+        ctx.restore();
+    }
+}
+
+for(let i = 0; i < 200; i++){
+    particles.push(
+        new Particle((Math.PI * 2 / 200) * i)
+    );
+}
+
+function animate() {
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
+
+</body>
+</html>
